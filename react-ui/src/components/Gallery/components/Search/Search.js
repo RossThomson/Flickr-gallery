@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import SearchWrapper from './styles/Search';
+import React, { Component } from "react";
+import SearchWrapper from "./styles/Search";
 
 class Search extends Component {
   constructor() {
     super();
 
     this.state = {
-      searchString: ''
+      searchString: ""
     };
   }
 
@@ -15,7 +15,9 @@ class Search extends Component {
 
     const { value } = e.target;
 
-    this.setState({ searchString: value }, () => { onSearchChange(value); });
+    this.setState({ searchString: value }, () => {
+      onSearchChange(value);
+    });
   };
 
   render() {
@@ -23,10 +25,12 @@ class Search extends Component {
 
     return (
       <SearchWrapper>
-        <input 
-          type="text" onChange={this.handleChange}
+        <input
+          type="text"
+          onChange={this.handleChange}
           placeholder="Search"
           value={searchString}
+          data-testid="search-input"
         />
       </SearchWrapper>
     );
